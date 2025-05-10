@@ -1,505 +1,581 @@
-<!doctype html>
-<html lang="en" data-bs-theme="dark">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagus Almahenzar's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and effects */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    <!-- Bootstrap Icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
 
-    <!-- AOS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
 
-    <!-- My CSS -->
-    <link rel="stylesheet" href="style.css">
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
 
-    <title>My Portfolio | Bagus Almahenzar</title>
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
 
-    <link rel="icon" type="image/png" href="img/my-logo.png">
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-tag {
+            transition: all 0.2s ease;
+        }
+
+        .tech-tag:hover {
+            transform: scale(1.05);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
 </head>
 
-<body id="home">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg shadow-sm fixed-top" style="background-color: var(--bs-body-bg);">
-        <div class="container">
-            <a class="navbar-brand" href="#">Bagus Almahenzar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#certificates">Certificates</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="bi bi-sun-fill theme-icon-active" data-theme-icon-active="bi-sun-fill"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <button class="dropdown-item d-flex align-items-center" type="button"
-                                    data-bs-theme-value="light">
-                                    <i class="bi bi-sun-fill me-2 opacity-50" data-theme-icon="bi-sun-fill"></i>
-                                    Light
-                                </button>
-                                <button class="dropdown-item d-flex align-items-center" type="button"
-                                    data-bs-theme-value="dark">
-                                    <i class="bi bi-moon-stars-fill me-2 opacity-50"
-                                        data-theme-icon="bi-moon-stars-fill"></i>
-                                    Dark
-                                </button>
-                                <button class="dropdown-item d-flex align-items-center" type="button"
-                                    data-bs-theme-value="auto">
-                                    <i class="bi bi-circle-half me-2 opacity-50" data-theme-icon="bi-circle-half"></i>
-                                    Auto
-                                </button>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-indigo-600">PORTFOLIO</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-indigo-600 hover:text-indigo-800 transition">Home</a>
+                    <a href="#projects" class="text-gray-600 hover:text-indigo-600 transition">Projects</a>
+                    <a href="#about" class="text-gray-600 hover:text-indigo-600 transition">About</a>
+                    <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition">Contact</a>
+                    <a href="#resume"
+                        class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">Resume</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="text-gray-600 hover:text-indigo-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-indigo-600">Home</a>
+                <a href="#projects"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600">Projects</a>
+                <a href="#about"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600">About</a>
+                <a href="#contact"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600">Contact</a>
+                <a href="#resume"
+                    class="block px-3 py-2 rounded-md text-base font-medium bg-indigo-600 text-white">Resume</a>
             </div>
         </div>
     </nav>
-    <!-- AkhirNavbar -->
 
-    <!-- Jumbotron -->
-    <section class="jumbotron text-center">
-        <img src="img/21.jpg" alt="Bagus Almahenzar" width="200" class="rounded-circle img-thumbnail">
-        <h1 class="display-4 fw-semibold">Bagus Almahenzar</h1>
-        <p class="lead"></p>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffffff" fill-opacity="1"
-                d="M0,96L34.3,122.7C68.6,149,137,203,206,192C274.3,181,343,107,411,85.3C480,64,549,96,617,133.3C685.7,171,754,213,823,202.7C891.4,192,960,128,1029,117.3C1097.1,107,1166,149,1234,176C1302.9,203,1371,213,1406,218.7L1440,224L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
-            </path>
-        </svg>
-    </section>
-    <!-- Akhir Jumbotron -->
-
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="row text-center mb-3">
-                <div class="col">
-                    <h2>About Me</h2>
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Hi, I'm <span class="text-indigo-600">Bagus</span>
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-6">
+                    Web Developer
+                </h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                    Specializing in Laravel & Filament development. Experienced with React, Express.js, and building
+                    cross-platform desktop applications with Flutter.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#projects"
+                        class="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition">
+                        View My Work
+                    </a>
+                    <a href="#contact"
+                        class="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-md hover:bg-indigo-50 transition">
+                        Contact Me
+                    </a>
                 </div>
             </div>
-            <div class="row justify-content-center fs-5 text-center">
-                <div class="col-md-4" data-aos="fade-right">
-                    <p>Nama saya Bagus Almahenzar atau lebih sering dikenal dengan nama Dipterocarpaceae, lahir di
-                        Pontianak, 10 Juli 2001. Saya merupakan lulusan dari Politeknik Statistika STIS
-                        Program Studi Komputasi Statistik Program Diploma IV.</p>
+            <div class="md:w-1/2 flex justify-center animate-fade-in delay-200">
+                <div class="relative">
+                    <div
+                        class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-indigo-100 shadow-lg">
+                        <img src="/img/photo-bagus-almahenzar.JPG" alt="Profile Photo"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-white px-4 py-2 rounded-full shadow-md">
+                        <span class="text-indigo-600 font-medium">5+ Years Experience</span>
+                    </div>
                 </div>
-                <!-- <div class="col-md-4" data-aos="fade-left" data-aos-delay="200">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A debitis vitae ipsum quae labore
-                        tenetur error placeat corporis rem corrupti doloribus, et iste dolor quas?</p>
-                </div> -->
             </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#e2edff" fill-opacity="1"
-                d="M0,288L34.3,261.3C68.6,235,137,181,206,149.3C274.3,117,343,107,411,112C480,117,549,139,617,160C685.7,181,754,203,823,197.3C891.4,192,960,160,1029,133.3C1097.1,107,1166,85,1234,90.7C1302.9,96,1371,128,1406,144L1440,160L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
-            </path>
-        </svg>
     </section>
-    <!-- Akhir About -->
 
-    <!-- Projects -->
-    <section id="projects">
-        <div class="container">
-            <div class="row text-center mb-3">
-                <div class="col">
-                    <h2>My Projects</h2>
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-white">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">My Projects</h2>
+            <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Projects will be dynamically loaded from data.json -->
+            <div id="projects-loading" class="col-span-3 text-center py-12">
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-indigo-600">
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-4 mb-3">
-                    <div class="card" data-aos="zoom-in-up" data-aos-duration="500">
-                        <img src="img/projects/gasseducation.png" class="card-img-top" alt="Project 1">
-                        <div class="card-body">
-                            <p class="card-text"><b>Gass Education</b> - Website ujian online yang menawarkan
-                                berbagai paket soal ujian masuk kedinasan.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card" data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="100">
-                        <img src="img/projects/kausabumikatulistiwa.png" class="card-img-top" alt="Project 2">
-                        <div class="card-body">
-                            <p class="card-text"><b>PT Kausa Bumi Khatulistiwa</b> - Website company profiles tentang
-                                perusahaan ekspor.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card" data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="200">
-                        <img src="img/projects/website-pkl-61.png" class="card-img-top" alt="Project 3">
-                        <div class="card-body">
-                            <p class="card-text"><b>Website Monitoring PKL Politeknik Statistika STIS T.A. 2021/2022</b>
-                                - Website untuk melakukan monitoring kegiatan lapangan Praktik Kerja Lapangan Politeknik
-                                Statistika STIS T.A. 2021/2022.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="col-md-4 mb-3">
-                    <div class="card" data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="300">
-                        <img src="img/projects/4.jpg" class="card-img-top" alt="Project 4">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card" data-aos="zoom-in-up" data-aos-duration="500" data-aos-delay="400">
-                        <img src="img/projects/5.jpg" class="card-img-top" alt="Project 5">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                        </div>
-                    </div>
-                </div> -->
+                <p class="mt-2 text-gray-600">Loading projects...</p>
             </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#ffffff" fill-opacity="1"
-                d="M0,224L34.3,202.7C68.6,181,137,139,206,133.3C274.3,128,343,160,411,149.3C480,139,549,85,617,85.3C685.7,85,754,139,823,160C891.4,181,960,171,1029,138.7C1097.1,107,1166,53,1234,48C1302.9,43,1371,85,1406,106.7L1440,128L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
-            </path>
-        </svg>
     </section>
-    <!-- Akhir Projects -->
 
-    <!-- Certificates -->
-    <section id="certificates">
-        <div class="container">
-            <div class="row text-center mb-3">
-                <div class="col">
-                    <h2>My Certificates</h2>
+    <!-- About Section -->
+    <section id="about" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-gray-50">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">About Me</h2>
+            <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                        alt="Profile Photo" class="w-full h-full object-cover">
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/baparekraf-developer-day-2022-certificate-1.png"
-                            alt="baparekraf-developer-day-2022-certificate-1.png" class="img-fluid gallery-img" />
-                    </a>
+
+            <div class="md:w-2/3 md:pl-12">
+                <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
+                <p class="text-gray-600 mb-6">
+                    I'm a passionate web developer with over 5 years of experience building modern, responsive web
+                    applications.
+                    I specialize in Laravel and Filament development, creating robust backend systems with elegant admin
+                    interfaces.
+                    My journey in web development has also led me to work with React, Express.js, and Flutter for
+                    desktop applications.
+                </p>
+
+                <h3 class="text-2xl font-semibold mb-4">My Tech Stack</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-laravel text-indigo-600"></i>
+                        </div>
+                        <span>Laravel</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-react text-blue-600"></i>
+                        </div>
+                        <span>React</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-node-js text-green-600"></i>
+                        </div>
+                        <span>Express.js</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-mobile-alt text-teal-600"></i>
+                        </div>
+                        <span>Flutter</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-js text-yellow-600"></i>
+                        </div>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fab fa-css3-alt text-blue-600"></i>
+                        </div>
+                        <span>Tailwind CSS</span>
+                    </div>
                 </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/peluang-karier-sebagai-blockchain-developer-certificate-1.png"
-                            alt="peluang-karier-sebagai-blockchain-developer-certificate-1.png"
-                            class="img-fluid gallery-img" />
+
+                <div class="flex space-x-4">
+                    <a href="#contact"
+                        class="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition">
+                        Contact Me
                     </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/Seminar Nasional Official Statistics 2022 (Sertifikat Panitia)-78bfa01aa2_Bagus Almahenzar-1.png"
-                            alt="Seminar Nasional Official Statistics 2022 (Sertifikat Panitia)-78bfa01aa2_Bagus Almahenzar-1.png"
-                            class="img-fluid gallery-img" />
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/Seminar Nasional Official Statistics 2022 (Sertifikat Peserta)-2e3a37567a_Bagus Almahenzar-1.png"
-                            alt="Seminar Nasional Official Statistics 2022 (Sertifikat Peserta)-2e3a37567a_Bagus Almahenzar-1.png"
-                            class="img-fluid gallery-img" />
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/SEMNAS_2020_PESERTA_1457412933_Bagus Almahenzar-1.png"
-                            alt="SEMNAS_2020_PESERTA_1457412933_Bagus Almahenzar-1.png" class="img-fluid gallery-img" />
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/SERTIFIKAT ONS UGM-1.png" alt="SERTIFIKAT ONS UGM-1.png"
-                            class="img-fluid gallery-img" />
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/Sertifikat Peserta Kuliah Umum Politeknik Statistika 2022-1267cab23a_Bagus Almahenzar-1.png"
-                            alt="Sertifikat Peserta Kuliah Umum Politeknik Statistika 2022-1267cab23a_Bagus Almahenzar-1.png"
-                            class="img-fluid gallery-img" />
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/Sertifikat Peserta Niagahoster Lite Bites 47-1.png"
-                            alt="Sertifikat Peserta Niagahoster Lite Bites 47-1.png" class="img-fluid gallery-img" />
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/Sertifikat Peserta Websight Sesi 3 - Sandhika Galih-1.png"
-                            alt="Sertifikat Peserta Websight Sesi 3 - Sandhika Galih-1.png"
-                            class="img-fluid gallery-img" />
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/SERTIFIKAT POISSON 2021_Bagus Almahenzar-1.png"
-                            alt="SERTIFIKAT POISSON 2021_Bagus Almahenzar-1.png" class="img-fluid gallery-img" />
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/SERTIFIKAT RASIO_2020_Bagus-1.png"
-                            alt="SERTIFIKAT RASIO_2020_Bagus-1.png" class="img-fluid gallery-img" />
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/SERTIFIKAT RASIO_2021_Bagus-1.png"
-                            alt="SERTIFIKAT RASIO_2021_Bagus-1.png" class="img-fluid gallery-img" />
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/SERTIFIKAT-DOKTER-DATA-2020_BAGUS ALMAHENZAR-1.png"
-                            alt="SERTIFIKAT-DOKTER-DATA-2020_BAGUS ALMAHENZAR-1.png" class="img-fluid gallery-img" />
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <a href="#">
-                        <img src="img/certificates/SERTIFIKAT-DOKTER-DATA-2021_BAGUS ALMAHENZAR-1.png"
-                            alt="SERTIFIKAT-DOKTER-DATA-2021_BAGUS ALMAHENZAR-1.png" class="img-fluid gallery-img" />
+                    <a href="#resume"
+                        class="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-md hover:bg-indigo-50 transition">
+                        Download Resume
                     </a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Akhir Gallery -->
 
-    <!-- Contact -->
-    <section id="contact">
-        <div class="container">
-            <div class="row text-center mb-3">
-                <div class="col">
-                    <h2>Contact Me</h2>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-white">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+            <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+        </div>
+
+        <div class="flex flex-col md:flex-row">
+            <div class="md:w-1/2 mb-10 md:mb-0 md:pr-8">
+                <h3 class="text-2xl font-semibold mb-4">Contact Information</h3>
+                <p class="text-gray-600 mb-8">
+                    Feel free to reach out to me for project inquiries, collaborations, or just to say hello.
+                    I'm always open to discussing new opportunities and ideas.
+                </p>
+
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-700">Email</h4>
+                            <a href="mailto:hello@example.com"
+                                class="text-indigo-600 hover:underline">hello@example.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-phone-alt text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-700">Phone</h4>
+                            <a href="tel:+1234567890" class="text-indigo-600 hover:underline">+1 (234) 567-890</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-700">Location</h4>
+                            <p class="text-gray-600">San Francisco, CA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <h4 class="font-medium text-gray-700 mb-4">Follow Me</h4>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-600 transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-100 hover:text-blue-400 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-pink-100 hover:text-pink-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="alert alert-success alert-dismissible fade show d-none" role="alert">
-                        <strong>Terimakasih!</strong> Pesan anda sudah kami terima.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <form name="diptero-contact-form">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="name" aria-describedby="name" name="nama"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="email" name="email"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="pesan" class="form-label">Pesan</label>
-                            <textarea class="form-control" id="pesan" name="pesan" rows="3" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-kirim">Kirim</button>
 
-                        <button class="btn btn-primary btn-loading d-none" type="button" disabled>
-                            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                            Loading...
-                        </button>
-                    </form>
-                </div>
+            <div class="md:w-1/2">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <input type="text" id="name" name="name"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                    </div>
+
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <input type="text" id="subject" name="subject"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="5"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition">
+                        Send Message
+                    </button>
+                </form>
             </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#0d6efd" fill-opacity="1"
-                d="M0,192L34.3,208C68.6,224,137,256,206,245.3C274.3,235,343,181,411,144C480,107,549,85,617,112C685.7,139,754,213,823,234.7C891.4,256,960,224,1029,192C1097.1,160,1166,128,1234,117.3C1302.9,107,1371,117,1406,122.7L1440,128L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
-            </path>
-        </svg>
     </section>
-    <!-- Akhir Contact -->
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto bg-gray-50">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">My Resume</h2>
+            <div class="w-20 h-1 bg-indigo-600 mx-auto"></div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden max-w-3xl mx-auto">
+            <div class="p-8">
+                <div class="flex flex-col md:flex-row items-center mb-8">
+                    <div class="md:w-1/3 mb-6 md:mb-0">
+                        <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-indigo-100 mx-auto">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                                alt="Profile Photo" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 text-center md:text-left">
+                        <h1 class="text-3xl font-bold text-gray-900">Alex Johnson</h1>
+                        <h2 class="text-xl text-indigo-600 mb-2">Web Developer</h2>
+                        <p class="text-gray-600">Specializing in Laravel, Filament, React, and Flutter development</p>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-200 pt-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-6 text-indigo-600">Experience</h3>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Senior Web Developer</h4>
+                            <p class="text-gray-600">Tech Solutions Inc. • 2020 - Present</p>
+                            <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                                <li>Led development of Laravel-based CRM system with Filament admin panel</li>
+                                <li>Built React frontend for customer portal with Express.js backend</li>
+                                <li>Developed cross-platform desktop applications using Flutter</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-gray-800">Web Developer</h4>
+                            <p class="text-gray-600">Digital Creations • 2018 - 2020</p>
+                            <ul class="list-disc pl-5 mt-2 text-gray-600 space-y-1">
+                                <li>Developed and maintained Laravel applications for various clients</li>
+                                <li>Created custom WordPress themes and plugins</li>
+                                <li>Implemented responsive designs with Tailwind CSS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-200 pt-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-6 text-indigo-600">Education</h3>
+
+                    <div>
+                        <h4 class="font-bold text-gray-800">B.Sc. in Computer Science</h4>
+                        <p class="text-gray-600">University of California • 2014 - 2018</p>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-200 pt-8">
+                    <h3 class="text-xl font-semibold mb-6 text-indigo-600">Skills</h3>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center mr-2">
+                                <i class="fab fa-laravel text-indigo-600 text-xs"></i>
+                            </div>
+                            <span>Laravel</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                <i class="fab fa-react text-blue-600 text-xs"></i>
+                            </div>
+                            <span>React</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-2">
+                                <i class="fab fa-node-js text-green-600 text-xs"></i>
+                            </div>
+                            <span>Express.js</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center mr-2">
+                                <i class="fas fa-mobile-alt text-teal-600 text-xs"></i>
+                            </div>
+                            <span>Flutter</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-yellow-100 rounded-full flex items-center justify-center mr-2">
+                                <i class="fab fa-js text-yellow-600 text-xs"></i>
+                            </div>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                <i class="fab fa-css3-alt text-blue-600 text-xs"></i>
+                            </div>
+                            <span>Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 px-8 py-6 text-center">
+                <a href="#"
+                    class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition">
+                    <i class="fas fa-download mr-2"></i> Download Full Resume
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white text-center pb-5">
-        <p>Created with <i class="bi bi-suit-heart-fill text-danger"></i> by <a
-                href="https://www.instagram.com/dipterocarpaceae" class="text-white fw-bold text-decoration-none">Bagus
-                Almahenzar</a></p>
+    <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold text-indigo-400">PORTFOLIO</span>
+                    <p class="text-gray-400 mt-2">Building digital experiences that matter</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-500 transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-pink-500 transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Bagus Almahenzar's Portfolio. All rights reserved.</p>
+
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-gray-400 hover:text-white transition">Home</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a>
+                    <a href="#about" class="text-gray-400 hover:text-white transition">About</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+                </div>
+            </div>
+        </div>
     </footer>
-    <!-- Akhir Footer -->
 
-    <!-- AOS -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        const galleryImg = document.querySelectorAll('.gallery-img');
-
-        galleryImg.forEach((img, i) => {
-            img.dataset.aos = 'fade-down';
-            img.dataset.aosDelay = i * 100;
-            img.dataset.aosDuration = 1000;
-        });
-
-        AOS.init({
-            once: true,
-            duration: 2000,
-        });
-    </script>
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
-
-    <!-- SCRIPT GSAP -->
-    <script>
-        gsap.registerPlugin(TextPlugin);
-        gsap.to('.lead', {
-            duration: 2,
-            delay: 1.5,
-            text: 'Student | Web Ambitious | Web Developer',
-        })
-        gsap.from('.jumbotron img', {
-            duration: 1,
-            opacity: 0,
-            y: -100,
-            rotateY: 360
-        });
-
-        gsap.from('.navbar', {
-            duration: 1.5,
-            opacity: 0,
-            y: '-100%',
-            ease: 'bounce',
-        });
-
-        gsap.from('.display-4', {
-            duration: 1,
-            opacity: 0,
-            x: -50,
-            delay: 0.5,
-            ease: 'back',
-        });
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
+    <!-- Load projects script -->
+    <script src="js/projects.js"></script>
 
     <script>
-        /*!
-     * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
-     * Copyright 2011-2022 The Bootstrap Authors
-     * Licensed under the Creative Commons Attribution 3.0 Unported License.
-     */
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
 
-        (() => {
-            'use strict'
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-            const storedTheme = localStorage.getItem('theme')
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
 
-            const getPreferredTheme = () => {
-                if (storedTheme) {
-                    return storedTheme
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const menu = document.getElementById('mobile-menu');
+                    menu.classList.add('hidden');
+
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
+            });
+        });
 
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-            }
-
-            const setTheme = function (theme) {
-                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.documentElement.setAttribute('data-bs-theme', 'dark')
-                } else {
-                    document.documentElement.setAttribute('data-bs-theme', theme)
+        // Add animation class to elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
                 }
-            }
+            });
+        }, {
+            threshold: 0.1
+        });
 
-            setTheme(getPreferredTheme())
+        // Initial observation of elements
+        document.querySelectorAll('.project-card, .animate-fade-in').forEach(el => {
+            observer.observe(el);
+        });
 
-            const showActiveTheme = theme => {
-                const activeThemeIcon = document.querySelector('.theme-icon-active')
-                const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
-                const iconOfActiveBtn = btnToActive.querySelector('i').dataset.themeIcon
+        // Set up a mutation observer to watch for dynamically added project cards
+        const projectsContainer = document.querySelector('#projects .grid');
+        if (projectsContainer) {
+            const mutationObserver = new MutationObserver((mutations) => {
+                mutations.forEach(mutation => {
+                    if (mutation.type === 'childList') {
+                        mutation.addedNodes.forEach(node => {
+                            if (node.nodeType === 1 && node.classList.contains('project-card')) {
+                                observer.observe(node);
+                            }
+                        });
+                    }
+                });
+            });
 
-                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-                    element.classList.remove('active')
-                })
-
-                btnToActive.classList.add('active')
-                activeThemeIcon.classList.remove(activeThemeIcon.dataset.themeIconActive)
-                activeThemeIcon.classList.add(iconOfActiveBtn)
-                activeThemeIcon.dataset.iconActive = iconOfActiveBtn
-            }
-
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-                if (storedTheme !== 'light' || storedTheme !== 'dark') {
-                    setTheme(getPreferredTheme())
-                }
-            })
-
-            window.addEventListener('DOMContentLoaded', () => {
-                showActiveTheme(getPreferredTheme())
-
-                document.querySelectorAll('[data-bs-theme-value]')
-                    .forEach(toggle => {
-                        toggle.addEventListener('click', () => {
-                            const theme = toggle.getAttribute('data-bs-theme-value')
-                            localStorage.setItem('theme', theme)
-                            setTheme(theme)
-                            showActiveTheme(theme)
-                        })
-                    })
-            })
-        })()
-    </script>
-
-    <!-- FORM to Google Sheet -->
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycby9fZ_pGiQ1tOJ9QEozZSgzibvrkyX7kE7ufOvbOpHGHqneGqVD4roNCjMvWfPnIAQpJg/exec';
-        const form = document.forms['diptero-contact-form'];
-
-        const btnKirim = document.querySelector('.btn-kirim');
-        const btnLoading = document.querySelector('.btn-loading');
-        const alertSuccess = document.querySelector('.alert-success');
-
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-            //ketika tombol submit diklik
-            //tampilkan tombol loading, hilangkan tombol kirim
-            //toggle seperti tombol lampu
-            btnLoading.classList.toggle('d-none');
-            btnKirim.classList.toggle('d-none');
-
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => {
-                    console.log('Success!', response);
-
-                    //tampilkan tombol kirim dan alert, hilangkan tombol loading
-                    alertSuccess.classList.toggle('d-none');
-                    btnLoading.classList.toggle('d-none');
-                    btnKirim.classList.toggle('d-none');
-
-                    //reset form
-                    form.reset();
-                })
-                .catch(error => console.error('Error!', error.message))
-        })
+            mutationObserver.observe(projectsContainer, { childList: true });
+        }
     </script>
 </body>
 

@@ -1,0 +1,144 @@
+{
+  "projects": [
+    {
+      "title": "Ngambiskuy",
+      "description": "Ngambiskuy is an Indonesian all-in-one educational platform for learning, teaching, and interactive exam simulations.",
+      "image": "ngambiskuy.png",
+      "technologies": [
+        {
+          "name": "Laravel",
+          "color": "indigo"
+        },
+        {
+          "name": "Filament",
+          "color": "blue"
+        },
+        {
+          "name": "JavaScript",
+          "color": "yellow"
+        },
+        {
+          "name": "Tailwind CSS",
+          "color": "blue"
+        }
+      ],
+      "liveLink": "https://ngambiskuy.com"
+    },
+    {
+      "title": "Statistics Indonesia Datalab",
+      "description": "StatInaLab is a secure microdata access platform by BPS-Statistics Indonesia, using a virtual desktop and the 5 Safes framework. I was the initial system developer, focusing on design and business logic.",
+      "image": "statinalab.png",
+      "technologies": [
+        {
+          "name": "Laravel",
+          "color": "indigo"
+        },
+        {
+          "name": "Flutter",
+          "color": "teal"
+        },
+        {
+          "name": "Tailwind CSS",
+          "color": "blue"
+        },
+        {
+          "name": "MySQL",
+          "color": "green"
+        }
+      ],
+      "liveLink": "https://statinalab.bps.go.id"
+    },
+    {
+      "title": "Ikatan Fisioterapi Indonesia",
+      "description": "IFI (Indonesian Physiotherapy Association) is the official organization for physiotherapists in Indonesia, promoting professional development and representing the country in World Physiotherapy since 1991.",
+      "image": "ikatan-fisioterapi-indonesia.jpg",
+      "technologies": [
+        {
+          "name": "Laravel",
+          "color": "indigo"
+        },
+        {
+          "name": "Tailwind CSS",
+          "color": "blue"
+        },
+        {
+          "name": "MySQL",
+          "color": "green"
+        }
+      ],
+      "liveLink": "https://ifi.or.id"
+    },
+    {
+      "title": "SEPAKAT - Meeting Management System",
+      "description": "Meeting management system I developed for internal use in my office-BPS Statistics Pontianak Municipality. It streamlines the planning, scheduling, documentation, and follow-up of meetings, ensuring better coordination, transparency, and efficiency across departments.",
+      "image": "sepakat-statistics-pontianak-municipality.png",
+      "technologies": [
+        {
+          "name": "Laravel",
+          "color": "indigo"
+        },
+        {
+          "name": "Filament",
+          "color": "blue"
+        },
+        {
+          "name": "MySQL",
+          "color": "green"
+        }
+      ],
+      "liveLink": null
+    },
+    {
+      "title": "SIKOMO - Survey Partner Coordination System",
+      "description": "Internal system I developed to manage partner coordination for surveys in my office. It automates the process of assigning tasks, coordinating between teams, and most importantly, generating official contract documents efficiently and accurately.",
+      "image": "sikomo.png",
+      "technologies": [
+        {
+          "name": "Google Spreadsheet",
+          "color": "green"
+        },
+        {
+          "name": "Google Docs",
+          "color": "blue"
+        },
+        {
+          "name": "Google Drive",
+          "color": "green"
+        },
+        {
+          "name": "JavaScript",
+          "color": "yellow"
+        },
+        {
+          "name": "Tailwind CSS",
+          "color": "blue"
+        }
+      ],
+      "liveLink": null
+    },
+    {
+      "title": "Gass Education",
+      "description": "Indonesian online platform that helps students prepare for entrance exams to government-affiliated higher education institutions. It offers study materials, tryouts, and expert guidance, especially for those aiming for Politeknik Statistika STIS.",
+      "image": "gasseducation.png",
+      "technologies": [
+        {
+          "name": "CodeIgniter3",
+          "color": "orange"
+        },
+        {
+          "name": "JavaScript",
+          "color": "yellow"
+        },
+        {
+          "name": "Bootstrap",
+          "color": "blue"
+        },
+        {
+          "name": "MySQL",
+          "color": "green"
+        }
+      ],
+      "liveLink": "https://gasseducation.com"
+    }
+  ]
+}
