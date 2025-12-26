@@ -139,30 +139,6 @@
         }
       ],
       "liveLink": "https://gasseducation.com"
-    },
-    {
-      "title": "COIPAN - Online Chatbot for Information and Services",
-      "description": "COIPAN - Online Chatbot for Information and Services of BPS Pontianak Municipality is a smart assistant that provides quick access to statistical information, data requests, and public services from BPS Pontianak, making communication easier and more efficient.",
-      "image": "coipan.png",
-      "technologies": [
-        {
-          "name": "WhatsApp",
-          "color": "orange"
-        },
-        {
-          "name": "JavaScript",
-          "color": "yellow"
-        },
-        {
-          "name": "Gemini AI",
-          "color": "blue"
-        },
-        {
-          "name": "Google Spreadsheet",
-          "color": "green"
-        }
-      ],
-      "liveLink": "https://s.bps.go.id/coipan6171"
     }
   ]
 }
